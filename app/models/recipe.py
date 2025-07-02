@@ -1,16 +1,15 @@
-from sqlalchemy import Column, Integer, String, Text
-from sqlalchemy.orm import declarative_base
+from flask_sqlalchemy import SQLAlchemy
 
-Base = declarative_base()
+db = SQLAlchemy()
 
-class Recipe(Base):
+class Recipe(db.Model):
     __tablename__ = 'recipes'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
-    ingredients = Column(Text, nullable=False)
-    instructions = Column(Text, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    ingredients = db.Column(db.Text, nullable=False)
+    instructions = db.Column(db.Text, nullable=False)
 
     # this method is used for debugging and logging
     def __repr__(self):
