@@ -6,16 +6,12 @@ my_flask_app/
 │
 ├── app/
 │   ├── __init__.py
-# contains table structure of each entity
 │   ├── models/ 
 │   │   └── user.py
-# abstraction of common methods used frequently
 │   ├── persistence/
 │   │   └── user_repo.py
-# contains functions for business logic used by files in routes/
 │   ├── services/
 │   │   └── user_service.py
-# RESTful api endpoints defining CRUD operations
 │   ├── routes/
 │   │   └── user_routes.py
 │   ├── schemas/
@@ -29,3 +25,21 @@ my_flask_app/
 # Project brief
 Goal:
 Create a backend REST API to manage users, recipes, and reviews for each recipe.
+
+
+# Flow of Flask
+Route → Service → Persistence → Database
+
+    Route:          RESTful api endpoints defining CRUD operations
+    Service:        Contains functions for business logic used by API routes in routes/
+    Persistence:    Database connection & config
+    Models:         Defines data structures 
+
+
+# Common Commands
+
+**** VIRTUAL ENVIRONMENT ****
+    Set-ExecutionPolicy Unrestricted -Scope Process
+    venv\scripts\activate
+
+

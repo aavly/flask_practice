@@ -1,9 +1,7 @@
-from flask import Flask
-app = Flask(__name__)
+from app import create_app
 
-@app.route('/')
-def home():
-    return "Blake and Anna: Learning Flask!"
+
 
 if __name__ == '__main__':
+    app = create_app()
     app.run(debug=True)
