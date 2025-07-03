@@ -17,11 +17,7 @@ def get_user(user_id):
     user = UserService.get_user_by_id(user_id)
     if not user:
         return jsonify({'error': 'User not found'}), 404
-    return jsonify({
-        'id': user.id,
-        'username': user.username,
-        'email': user.email
-    })
+    return jsonify(user.to_dict())
 
 @user_bp.route('/', methods=['POST'])
 def create_user():
