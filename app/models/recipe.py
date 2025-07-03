@@ -15,7 +15,7 @@ class Recipe(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     # Relationship to User (owner)
-    user = db.relationship('User', backref='recipes')
+    user = db.relationship('User', back_populates='recipes')
 
     # this method is used for debugging and logging
     def __repr__(self):

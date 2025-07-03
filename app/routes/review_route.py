@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from services.review_service import ReviewService
+from app.services.review_service import ReviewService
 
-review_bp = Blueprint('review_bp', __name__)
+review_bp = Blueprint('review_bp', __name__, url_prefix='/reviews')
 
 @review_bp.route('/reviews', methods=['GET'])
 def get_reviews():
@@ -35,4 +35,4 @@ def delete_review(review_id):
         return jsonify({"message": "Review deleted successfully"}), 200
     else:
         return jsonify({"error": "Review not found"}), 404
-    
+

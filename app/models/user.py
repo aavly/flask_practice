@@ -1,4 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
 from app import db
 
 class User(db.Model):
@@ -10,8 +9,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(128), nullable=False)
 
     # Relationships
-    reviews = db.relationship('Review', backref='user', lazy=True)
-    recipes = db.relationship('Recipe', backref='user', lazy=True)  
+    recipes = db.relationship('Recipe', back_populates='user', lazy=True)
 
     def to_dict(self):
         return {
